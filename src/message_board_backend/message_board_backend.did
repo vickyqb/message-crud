@@ -2,7 +2,9 @@ type Result = variant { Ok; Err : text };
 service : {
   add_message : (text) -> ();
   delete_message : (nat64) -> (Result);
+  get_all_mobiles : () -> (vec text) query;
   get_messages : () -> (vec text) query;
   greet : (text) -> (text) query;
   modify_message : (nat64, text) -> (Result);
+  store_mobile_number : (text) -> ();
 }
