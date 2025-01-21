@@ -3,7 +3,6 @@ use std::cell::RefCell;
 
 thread_local! {
     static MESSAGES: RefCell<Vec<String>> = RefCell::new(Vec::new());
-    static MOBILE_NUMBERS: RefCell<Vec<String>> = RefCell::new(Vec::new());
 }
 
 #[query]
