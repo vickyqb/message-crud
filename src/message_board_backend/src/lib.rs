@@ -51,18 +51,4 @@ fn delete_message(index: usize) -> Result<(), &'static str> {
         }
     })
 }
-
-#[update]
-fn store_mobile_number(mobile_number: String) {
-    MOBILE_NUMBERS.with(|mobiles| {
-        mobiles.borrow_mut().push(mobile_number);
-        storage::stable_save((mobiles.borrow().clone(),)).expect("Failed to save mobile numbers to stable storage");
-    });
-}
-
-#[query]
-fn get_all_mobiles() -> Vec<String> {
-    MOBILE_NUMBERS.with(|mobiles| mobiles.borrow().clone()) 
-}
-
 export_candid!();
